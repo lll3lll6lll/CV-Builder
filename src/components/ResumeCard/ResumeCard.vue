@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import router from "@/router";
+import Button from "@/components/ui/Button.vue";
 
 const props = defineProps({
   id: { type: Number, required: false },
@@ -11,7 +12,10 @@ const onClick = () => {
 </script>
 
 <template>
-  <div @click="onClick" class="card">Resume {{ id }}</div>
+  <div @click="onClick" class="card">
+    Resume {{ id }}
+    <Button></Button>
+  </div>
 </template>
 
 <style scoped lang="scss">
