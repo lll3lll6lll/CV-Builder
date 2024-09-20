@@ -14,7 +14,7 @@ const onClick = () => {
 <template>
   <div @click="onClick" class="card">
     Resume {{ id }}
-    <Button></Button>
+    <Button>resume {{ id }}</Button>
   </div>
 </template>
 
