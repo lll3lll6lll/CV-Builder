@@ -9,12 +9,15 @@ const props = defineProps({
 const onClick = () => {
   router.push({ name: `builder`, params: { resumeId: props.id } });
 };
+const onClickHandelerButton = () => {
+  console.log("button click");
+};
 </script>
 
 <template>
   <div @click="onClick" class="card">
     Resume {{ id }}
-    <Button>resume {{ id }}</Button>
+    <Button @click="onClickHandelerButton">resume {{ id }}</Button>
   </div>
 </template>
 
