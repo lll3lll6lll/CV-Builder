@@ -51,10 +51,10 @@ function onClickHandler() {
   }
   &:hover {
     &::after {
-      transform: translate(-5px, -5px);
+      transform: translate(-3px, -3px);
     }
     &::before {
-      transform: translate(5px, 5px);
+      transform: translate(3px, 3px);
     }
   }
 }
