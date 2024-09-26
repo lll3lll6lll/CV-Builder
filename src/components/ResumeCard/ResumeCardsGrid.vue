@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType } from "vue";
+import { PropType, ref } from "vue";
 import ResumeCard from "@/components/ResumeCard/ResumeCard.vue";
 import Button from "../ui/Button.vue";
 import CheckBox from "../ui/CheckBox.vue";
@@ -11,6 +11,12 @@ type Card = {
 const props = defineProps({
   items: { type: Array as PropType<Card[]>, required: false },
 });
+
+const selectedValue = ref([]);
+
+function setValue(val: string) {
+  console.log(val);
+}
 </script>
 
 <template>
@@ -23,9 +29,24 @@ const props = defineProps({
   </div>
   <Button class="login-btn">Login</Button>
   <div class="">
-    <CheckBox value="Name" name="val" text="One" />
-    <CheckBox value="Two" name="val" text="Two" />
-    <CheckBox value="Three" name="val" text="Three" />
+    <CheckBox
+      value="One"
+      label="One"
+      @update:model-value="setValue"
+      v-model="selectedValue"
+    />
+    <CheckBox
+      value="two"
+      label="Two"
+      @update:model-value="setValue"
+      v-model="selectedValue"
+    />
+    <CheckBox
+      value="three"
+      label="Three"
+      @update:model-value="setValue"
+      v-model="selectedValue"
+    />
   </div>
 </template>
 
