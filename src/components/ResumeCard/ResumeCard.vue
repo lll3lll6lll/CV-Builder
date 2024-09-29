@@ -11,6 +11,7 @@ const onClick = () => {
 };
 const onClickHandelerButton = () => {
   console.log("button click");
+  console.log(window.devicePixelRatio);
 };
 </script>
 
@@ -23,8 +24,10 @@ const onClickHandelerButton = () => {
 
 <style scoped lang="scss">
 .card {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border: 1px solid gray;
+  background-color: rgba(255, 255, 255, 0.884);
+  padding: 5px;
 }
 </style>
