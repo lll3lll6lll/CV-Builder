@@ -27,7 +27,7 @@ function showMenu() {
   position: relative;
   padding: 30px;
   &__image {
-    border: 6px solid white;
+    border: 6px solid #079894;
     height: 132px;
     width: 132px;
     border-radius: 50%;
