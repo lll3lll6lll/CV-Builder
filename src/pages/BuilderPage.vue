@@ -10,7 +10,10 @@ const route = useRoute();
 </script>
 
 <template>
-  <div>
+  <div class="">
+    <p class="font-semibold text-xl tracking-tight">
+      kjgldkfjglkfjldkhfkljfgkhlfg
+    </p>
     <router-link :to="{ name: 'main' }">back</router-link>
 
     <MainMenu />
