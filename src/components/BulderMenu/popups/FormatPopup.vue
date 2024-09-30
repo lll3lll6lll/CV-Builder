@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
-<template>test popup text</template>
+<template>format popup</template>
 
 <style scoped lang="scss"></style>

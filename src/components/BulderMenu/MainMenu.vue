@@ -1,26 +1,34 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import TestForPopup from "@/components/BulderMenu/TestForPopup.vue";
+import LayoutPopup from "./popups/LayoutPopup.vue";
+import FontPopup from "./popups/FontPopup.vue";
+import FormatPopup from "./popups/FormatPopup.vue";
+import DownloadPopup from "./popups/DownloadPopup.vue";
 
 const menu = [
   {
     name: "layout",
-    label: "",
+    label: "Layout",
     icon: "mingcute:layout-8-fill",
-    component: TestForPopup,
+    component: LayoutPopup,
   },
-  { name: "font", label: "", icon: "fa-solid:font", component: TestForPopup },
+  {
+    name: "font",
+    label: "Font",
+    icon: "fa-solid:font",
+    component: FontPopup,
+  },
   {
     name: "format",
-    label: "",
+    label: "Format",
     icon: "basil:settings-solid",
-    component: TestForPopup,
+    component: FormatPopup,
   },
   {
     name: "download",
     label: "Download",
     icon: "streamline:download-circle-solid",
-    component: TestForPopup,
+    component: DownloadPopup,
   },
 ];
 
@@ -50,7 +58,7 @@ const hidePopup = () => {
         @mouseenter="showPopup(item.name)"
         @mouseleave="hidePopup()"
       >
-        <Icon :icon="item.icon" width="32" height="32" />
+        <Icon :icon="item.icon" width="24" height="24" />
         <span v-if="item.label"> {{ item.label }} </span>
       </div>
 
@@ -67,11 +75,12 @@ const hidePopup = () => {
 </template>
 
 <style scoped lang="scss">
+$bg: #36394f;
 .menu {
   height: 40px;
   padding: 6px;
   border-radius: 50px;
-  background-color: #36394f;
+  background-color: $bg;
   align-items: center;
   font-size: 15px;
   display: inline-flex;
@@ -81,10 +90,15 @@ const hidePopup = () => {
     display: flex;
     align-items: center;
     padding: 4px;
-    margin: 0 10px;
+    margin: 0 14px;
     span {
       margin-left: 12px;
     }
+  }
+  .trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 
     &:hover {
       color: #079894;
@@ -92,12 +106,11 @@ const hidePopup = () => {
   }
 
   .dropdown {
-    width: 200px;
-    height: 200px;
-    background-color: #fff;
+    background-color: $bg;
     position: absolute;
-    //transform: translateX(50%);
-    top: 100%;
+    top: 58px;
+    border-radius: 8px;
+    padding: 18px;
   }
 }
 </style>

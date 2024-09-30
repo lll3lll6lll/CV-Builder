@@ -10,13 +10,21 @@ const route = useRoute();
 </script>
 
 <template>
-  <div>
+  <div class="builder-page">
     <router-link :to="{ name: 'main' }">back</router-link>
+    <MainMenu class="menu" />
 
-    <MainMenu />
+    <!--    <div>builder page {{ route.params }}</div>-->
   </div>
-
-  <div>builder page {{ route.params }}</div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.builder-page {
+  //border: 1px solid red;
+}
+.menu {
+  position: sticky;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
