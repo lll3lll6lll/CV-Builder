@@ -12,15 +12,15 @@ const route = useRoute();
 
 <template>
   <div class="builder">
-    <router-link :to="{ name: 'main' }">back</router-link>
-
-    <MainMenu />
-    <div class="builder__page">
-      <BuilderHeader></BuilderHeader>
+    <div class="container">
+      <router-link :to="{ name: 'main' }">back</router-link>
+      <MainMenu />
+      <div class="builder__page">
+        <BuilderHeader></BuilderHeader>
+      </div>
     </div>
+    <div>builder page {{ route.params }}</div>
   </div>
-
-  <div>builder page {{ route.params }}</div>
 </template>
 
 <style scoped lang="scss">
