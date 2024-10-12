@@ -1,12 +1,17 @@
 <template>
-  <div class="photo">
-    <div class="photo__image" @click="showMenu">
+  <div class="relative">
+    <div
+      class="w-32 h-32 border-4 border-white border-solid rounded-full flex items-center justify-center overflow-hidden"
+      @click="showMenu"
+    >
       <Icon icon="ph:user-duotone" width="132" height="132" color="white" />
     </div>
-    <div class="photo__menu" v-if="isShow">
+    <div class="absolute" v-if="isShow">
       <File>
-        <Icon icon="ic:sharp-cloud-upload" />
-        <span class="photo__menu-text">Upload photo</span>
+        <span class="flex items-center bg-green-700 p-1 rounded-md">
+          <Icon icon="ic:sharp-cloud-upload" class="mr-1 text-white" />
+          <span class="photo__menu-text text-white">Upload photo</span>
+        </span>
       </File>
     </div>
   </div>
@@ -22,28 +27,4 @@ function showMenu() {
 }
 </script>
 
-<style scoped lang="scss">
-.photo {
-  position: relative;
-  padding: 30px;
-  &__image {
-    border: 6px solid #079894;
-    height: 132px;
-    width: 132px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  &__menu {
-    display: flex;
-    position: absolute;
-    background-color: #079894;
-    padding: 5px;
-    border-radius: 5px;
-    color: #fff;
-    top: 0;
-  }
-  &__menu-text {
-    margin-left: 5px;
-  }
-}
-</style>
+<style scoped lang="scss"></style>
