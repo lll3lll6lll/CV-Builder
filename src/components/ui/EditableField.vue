@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { defineModel } from "vue";
-const model = defineModel({ type: String });
+const model = defineModel({ type: String || Number || undefined });
 
 function change(e: Event) {
   model.value = (e.target as HTMLDivElement).innerText;
