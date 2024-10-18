@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import { Icon } from "@iconify/vue";
-import "@/assets/styles/index.css";
+import "@/assets/styles/index.scss";
 
 const app = createApp(App);
 app.use(store);
