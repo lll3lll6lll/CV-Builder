@@ -20,9 +20,10 @@
   </div>
 </template>
 <script setup lang="ts">
+import { IDate } from "@/types";
 import { defineModel } from "vue";
 
-const model = defineModel<{ day: number; year: number }>({
+const model = defineModel<IDate>({
   default: { day: "", year: "" },
 });
 function pressKeyHandler(event: Event) {
