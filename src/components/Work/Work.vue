@@ -25,12 +25,9 @@
 import { ref, onBeforeMount } from "vue";
 import EditableField from "./ui/EditableField.vue";
 import DateField from "./ui/DateField.vue";
-import { IWork, IWorksData } from "@/types";
+import { IWork } from "@/types";
 
-const data = ref<IWorksData>({
-  title: "Work",
-  works: [],
-});
+const data = ref<IWork>({});
 
 onBeforeMount(() => {
   console.log("beforemount");

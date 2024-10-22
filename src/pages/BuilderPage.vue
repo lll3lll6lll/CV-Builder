@@ -19,7 +19,7 @@ const route = useRoute();
       <div class="builder__page">
         <BuilderHeader></BuilderHeader>
         <main class="p-4">
-          <Work></Work>
+          <Works></Works>
         </main>
       </div>
     </div>
