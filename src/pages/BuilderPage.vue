@@ -2,7 +2,7 @@
 import { useRoute } from "vue-router";
 import MainMenu from "@/components/BulderMenu/MainMenu.vue";
 import BuilderHeader from "@/components/BuilderHeader/BuilderHeader.vue";
-import Work from "@/components/Work.vue";
+import Works from "@/components/Work/Works.vue";
 
 const props = defineProps({
   items: { type: Array, required: false },

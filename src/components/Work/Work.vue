@@ -1,33 +1,31 @@
 <template>
   <div>
     <EditableField
-      v-model="data.title"
-      class="text-2xl text-yellow-700 font-bold"
-      @change="changeHandler"
-    ></EditableField>
-    <EditableField
-      v-model="data.works.position"
+      v-model="data.position"
       plceholder="Title/Position"
-      class="text-lg color-black"
+      class="text-black font-bold text-lg"
       @change="changeHandler"
     ></EditableField>
     <EditableField
-      v-model="data.works.company"
+      v-model="data.company"
       plceholder="Workplace/Company"
     ></EditableField>
     <div class="flex">
-      <DateField></DateField>
+      <!-- <DateField></DateField> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeMount } from "vue";
-import EditableField from "./ui/EditableField.vue";
-import DateField from "./ui/DateField.vue";
-import { IWork } from "@/types";
+import { defineModel, onBeforeMount } from "vue";
+import EditableField from "@/components/ui/EditableField.vue";
+// import DateField from "./ui/DateField.vue";
+// import { IWork } from "@/types";
 
-const data = ref<IWork>({});
+const data = defineModel({
+  type: Object,
+  default: { position: "" },
+});
 
 onBeforeMount(() => {
   console.log("beforemount");
