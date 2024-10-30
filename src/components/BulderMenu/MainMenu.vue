@@ -84,7 +84,10 @@ $bg: #36394f;
   align-items: center;
   font-size: 15px;
   display: inline-flex;
-  position: relative;
+  position: fixed;
+  top: 8px;
+  transform: translateX(-50%);
+  left: 50%;
 
   &-item {
     display: flex;
@@ -108,7 +111,7 @@ $bg: #36394f;
   .dropdown {
     background-color: $bg;
     position: absolute;
-    top: 58px;
+    top: 45px;
     border-radius: 8px;
     padding: 18px;
   }
