@@ -14,7 +14,7 @@ const route = useRoute();
 <template>
   <div class="builder">
     <div class="container">
-      <router-link :to="{ name: 'main' }">back</router-link>
+      <!--      <router-link :to="{ name: 'main' }">back</router-link>-->
       <MainMenu />
       <div class="builder__page">
         <BuilderHeader></BuilderHeader>
