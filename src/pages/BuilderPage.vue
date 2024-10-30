@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 import MainMenu from "@/components/BulderMenu/MainMenu.vue";
+import BuilderHeader from "@/components/BuilderHeader/BuilderHeader.vue";
+import Work from "@/components/Work.vue";
 
 const props = defineProps({
   items: { type: Array, required: false },
@@ -10,21 +12,28 @@ const route = useRoute();
 </script>
 
 <template>
-  <div class="builder-page">
-    <router-link :to="{ name: 'main' }">back</router-link>
-    <MainMenu class="menu" />
-
-    <!--    <div>builder page {{ route.params }}</div>-->
+  <div class="builder">
+    <div class="container">
+      <router-link :to="{ name: 'main' }">back</router-link>
+      <MainMenu />
+      <div class="builder__page">
+        <BuilderHeader></BuilderHeader>
+        <main class="p-4">
+          <Work></Work>
+        </main>
+      </div>
+    </div>
+    <div>builder page {{ route.params }}</div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.builder-page {
-  //border: 1px solid red;
-}
-.menu {
-  position: sticky;
-  left: 50%;
-  transform: translateX(-50%);
+.builder {
+  &__page {
+    width: 840px;
+    height: 1188px;
+    background: #fff;
+    margin: 0 auto;
+  }
 }
 </style>
