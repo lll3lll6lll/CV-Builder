@@ -18,7 +18,6 @@ const emits = defineEmits(["change"]);
 function change(e: Event) {
   model.value = (e.target as HTMLDivElement).innerText;
   emits("change");
-  // console.log("change");
 }
 </script>
 
