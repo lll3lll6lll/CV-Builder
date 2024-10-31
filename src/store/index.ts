@@ -1,16 +1,22 @@
 import { createStore } from "vuex";
-import { IWork, IWorksData } from "../types";
+import { IResume, IWork } from "../types";
 
 export interface State {
-  works: IWorksData;
+  resume: IResume;
 }
 
 export default createStore<State>({
-  state: { works: { works: [], title: "Work Experience" } },
-  getters: {},
+  state: {
+    resume: { id: "first", works: { title: "Work Experience", works: [] } },
+  },
+  getters: {
+    resume(state) {
+      return state.resume;
+    },
+  },
   mutations: {
     addWork(state, work: IWork) {
-      state.works.works.push(work);
+      state.resume.works.works.push(work);
     },
   },
   actions: {},
