@@ -4,6 +4,7 @@
     class="focus-visible:outline-0 focus-visible:border-b break-words"
     style="word-break: break-word"
     @blur="change"
+    :data-placeholder="props.plceholder"
   >
     {{ model || props.plceholder }}
   </div>
