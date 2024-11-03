@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import router from "@/router";
-import Button from "@/components/ui/Button.vue";
+import { Icon } from "@iconify/vue";
 
 const props = defineProps({
-  id: { type: Number, required: false },
+  id: { type: String, required: false },
 });
+
+const emits = defineEmits(["remove"]);
 
 const onClick = () => {
   router.push({ name: `builder`, params: { resumeId: props.id } });
@@ -16,7 +18,11 @@ const onClickHandelerButton = () => {
 </script>
 
 <template>
-  <div @click="onClick" class="card">
+  <div @click.stop="onClick" class="card relative">
+    <button class="absolute right-3" @click.stop="emits('remove')">
+      <Icon color="red" icon="mdi:remove"></Icon>
+    </button>
+
     Resume {{ id }}
     <Button @click="onClickHandelerButton">resume {{ id }}</Button>
   </div>

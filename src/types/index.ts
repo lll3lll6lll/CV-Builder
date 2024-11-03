@@ -1,2 +1,2 @@
 export * from "./IDate";
-export * from "./IWork";
+export * from "./Resume";

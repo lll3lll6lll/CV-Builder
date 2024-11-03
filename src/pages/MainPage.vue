@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ResumeCardsGrid from "@/components/ResumeCard/ResumeCardsGrid.vue";
+import store from "@/store";
 
 const cards = [
   { id: 1 },
@@ -11,12 +12,14 @@ const cards = [
   { id: 7 },
   { id: 8 },
 ];
+const resumeList = store.getters.resumeAll;
+console.log(resumeList);
 </script>
 
 <template>
   main page
 
-  <ResumeCardsGrid :items="cards" />
+  <ResumeCardsGrid :items="resumeList" />
 </template>
 
 <style scoped lang="scss"></style>

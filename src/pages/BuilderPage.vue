@@ -3,12 +3,15 @@ import { useRoute } from "vue-router";
 import MainMenu from "@/components/BulderMenu/MainMenu.vue";
 import BuilderHeader from "@/components/BuilderHeader/BuilderHeader.vue";
 import Works from "@/components/Work/Works.vue";
-
-const props = defineProps({
-  items: { type: Array, required: false },
-});
+import store from "@/store/index";
+import { IResume } from "@/types";
+// const props = defineProps({
+//   items: { type: Array, required: false },
+// });
 
 const route = useRoute();
+const resume = store.getters.resume(route.params.resumeId) as IResume;
+console.log(resume);
 </script>
 
 <template>
@@ -19,7 +22,7 @@ const route = useRoute();
       <div class="builder__page">
         <BuilderHeader></BuilderHeader>
         <main class="p-4">
-          <Works></Works>
+          <Works v-model="resume.works"></Works>
         </main>
       </div>
     </div>

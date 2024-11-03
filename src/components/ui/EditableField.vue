@@ -14,6 +14,7 @@
     {{ model || props.plceholder }}
   </div>
 </template>
+s
 
 <script setup lang="ts">
 import { defineModel, ref } from "vue";

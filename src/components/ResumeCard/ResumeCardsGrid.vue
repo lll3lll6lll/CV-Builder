@@ -3,19 +3,24 @@ import { PropType, ref } from "vue";
 import ResumeCard from "@/components/ResumeCard/ResumeCard.vue";
 import Button from "../ui/Button.vue";
 import CheckBox from "../ui/CheckBox.vue";
-
-type Card = {
-  id: number;
-};
+import { IResume } from "@/types";
+import { Icon } from "@iconify/vue";
+import store from "@/store";
 
 const props = defineProps({
-  items: { type: Array as PropType<Card[]>, required: false },
+  items: { type: Array as PropType<IResume[]>, required: false },
 });
 
 const selectedValue = ref([]);
 
 function setValue(val: string) {
   console.log(val);
+}
+function addResume() {
+  store.commit("addResume", {});
+}
+function removeResume(id: string) {
+  store.commit("removeResume", id);
 }
 </script>
 
@@ -25,7 +30,11 @@ function setValue(val: string) {
       v-for="item in props.items"
       :key="'grid-card-' + item.id"
       :id="item.id"
+      @remove="removeResume(item.id)"
     />
+    <div class="bg-white bg-opacity-20 rounded-md" @click="addResume">
+      <Icon icon="opportunity" height="100" width="100" color="red"></Icon>
+    </div>
   </div>
   <Button class="login-btn">Login</Button>
   <div class="">
