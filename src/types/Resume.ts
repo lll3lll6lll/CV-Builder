@@ -1,10 +1,11 @@
-import { IDate } from "./IDate";
+import { IDefaultTittles } from "./Settings";
 export interface IWork {
   id: string;
+  tittles: IDefaultTittles;
   position: string;
   company: string;
-  dateStart: IDate;
-  dateEnd?: IDate;
+  dateStart: Date;
+  dateEnd?: Date;
   city: string;
   companyDesc: string;
   tasks: string;
@@ -12,12 +13,8 @@ export interface IWork {
   contactInfo: string;
 }
 
-export interface IWorksData {
-  title: string;
-  works: IWork[];
-}
-
 export interface IResume {
   id: string;
-  works: IWorksData;
+  tittles: IDefaultTittles;
+  works: IWork[];
 }

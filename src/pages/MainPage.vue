@@ -3,7 +3,6 @@ import ResumeCardsGrid from "@/components/ResumeCard/ResumeCardsGrid.vue";
 import store from "@/store";
 
 const resumeList = store.getters.resumeAll;
-console.log(resumeList);
 </script>
 
 <template>

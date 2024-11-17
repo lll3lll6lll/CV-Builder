@@ -1,15 +1,13 @@
 import { createStore } from "vuex";
-import { IResume, IWork } from "../types";
-
+import { IResume } from "../types";
+import { tittles } from "@/data/tittles";
 export interface State {
   resumeList: IResume[];
 }
 
 export default createStore<State>({
   state: {
-    resumeList: [
-      { id: "first", works: { title: "Work Experience", works: [] } },
-    ],
+    resumeList: [{ id: "first", tittles, works: [] }],
   },
   getters: {
     resumeAll(state) {

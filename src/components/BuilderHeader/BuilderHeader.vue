@@ -28,7 +28,6 @@ import AccountSettings from "../Account/AccountSettings.vue";
 const isShowDialog = ref(false);
 
 function openModal() {
-  console.log("sdjhfjshd");
   isShowDialog.value = true;
 }
 </script>

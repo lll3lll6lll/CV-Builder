@@ -1,21 +1,13 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { defineModel } from "vue";
 
 const props = defineProps({
   name: String,
   value: { type: [Boolean, Object, String] },
   label: String,
-  modelValue: { type: [Array, Boolean, String] },
 });
-const emits = defineEmits(["update:modelValue"]);
-const model = computed({
-  get() {
-    return props.modelValue;
-  },
-  set(value) {
-    emits("update:modelValue", value);
-  },
-});
+const emits = defineEmits(["change"]);
+const model = defineModel<boolean | null>();
 </script>
 
 <template>
@@ -24,7 +16,7 @@ const model = computed({
       type="checkbox"
       v-model="model"
       class="checkbox__input"
-      :value="value"
+      @change="emits('change')"
     />
     <span class="checkbox__check">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

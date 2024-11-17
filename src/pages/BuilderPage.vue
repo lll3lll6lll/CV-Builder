@@ -11,7 +11,6 @@ import { IResume } from "@/types";
 
 const route = useRoute();
 const resume = store.getters.resume(route.params.resumeId) as IResume;
-console.log(resume);
 </script>
 
 <template>
@@ -22,7 +21,10 @@ console.log(resume);
       <div class="builder__page">
         <BuilderHeader></BuilderHeader>
         <main class="p-4">
-          <Works v-model="resume.works"></Works>
+          <Works
+            v-model="resume.works"
+            v-model:tittle="resume.tittles.works"
+          ></Works>
         </main>
       </div>
     </div>

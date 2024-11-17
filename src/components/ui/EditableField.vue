@@ -2,19 +2,19 @@
   <div
     contenteditable="true"
     :class="{
-      true: 'break-words relative',
-      isEmpty:
-        'focus-visible:outline-0 focus-visible:border-b focus-visible:before:content-[attr(data-placeholder)] before:absolute before:left-0 before:text-opacity-50',
+      'break-words relative': true,
+      'focus-visible:outline-0 focus-visible:border-b focus-visible:before:content-[attr(data-placeholder)] before:absolute before:left-0 before:opacity-60':
+        isEmpty,
     }"
-    style="word-break: break-word}"
+    style="word-break: break-word"
     @blur="change"
     :data-placeholder="props.plceholder"
     @focus="focusHandler"
+    @input="inputHandler"
   >
     {{ model || props.plceholder }}
   </div>
 </template>
-s
 
 <script setup lang="ts">
 import { defineModel, ref } from "vue";
@@ -23,16 +23,20 @@ const props = defineProps({ plceholder: String });
 const isEmpty = ref(false);
 const emits = defineEmits(["change"]);
 
-function change(e: Event) {
-  model.value = (e.target as HTMLDivElement).innerText;
+function inputHandler(e: Event) {
+  model.value = (e.target as HTMLDivElement).innerText.trim();
   isEmpty.value = false;
-  console.log(model.value);
+}
+
+function change(e: Event) {
   emits("change");
+  if ((e.target as HTMLDivElement).innerText.trim().length === 0) {
+    (e.target as HTMLDivElement).innerText = props.plceholder || "";
+  }
 }
 function focusHandler(e: Event) {
-  console.log("in");
-
-  if (model.value === props.plceholder) {
+  console.log(model.value);
+  if ((e.target as HTMLDivElement).innerText == props.plceholder) {
     (event!.target as HTMLDivElement).innerHTML = "";
     isEmpty.value = true;
   }

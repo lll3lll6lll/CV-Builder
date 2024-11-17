@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-click-outside="outsideHandler">
     <div class="" @click="editHandler">
       <EditableField
         v-model="data.position"
@@ -14,22 +14,15 @@
         class="mb-1"
       ></EditableField>
     </div>
-
-    <div :class="{ hidden: !isEditable, block: isEditable }">
-      <div class="flex">
-        <DateField v-model="data.dateStart"></DateField>
-        <span>-</span>
-        <DateField v-model="data.dateEnd"></DateField>
-      </div>
-    </div>
+    <DateView v-model:start="data.dateStart"></DateView>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineModel, onBeforeMount, PropType, ref } from "vue";
+import { defineModel, PropType, ref } from "vue";
 import EditableField from "@/components/ui/EditableField.vue";
-import DateField from "@/components/ui/DateField.vue";
 import { IWork } from "@/types";
+import DateView from "@/components/ui/Date/DateView.vue";
 
 const data = defineModel({
   type: Object as PropType<IWork>,
@@ -38,16 +31,15 @@ const data = defineModel({
 
 const isEditable = ref(false);
 
-onBeforeMount(() => {
-  console.log("beforemount");
-});
-
 function changeHandler() {
   console.log(data.value);
 }
 
 function editHandler() {
-  isEditable.value = !isEditable.value;
+  isEditable.value = true;
+}
+function outsideHandler() {
+  isEditable.value = false;
 }
 </script>
 
